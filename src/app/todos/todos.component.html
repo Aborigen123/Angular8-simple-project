@@ -1,0 +1,24 @@
+
+<div *ngIf="!loading">
+<div class="filter"><!--filter і зразу буде рендерити список-->
+<input type="text" 
+placeholder="Filter">
+    </div>
+
+<ul *ngIf="todosService.todos.length; else noTodos"><!--noTodos - назва компонента який буде записуэться в ng-template повний запис  #noTodos-->
+<li *ngFor="let todo of todosService.todos; let i = index"> <!--робимо цикл | всі елементи які міняють стуктуру html починаються з * | todo - змінна todo із масиву todos -->
+<span [class.done]="todo.completed"> <!-- закреслення додається тут і перевіряється умова кожного компонента-->
+    <input type="checkbox" [checked] = "todo.completed" (change)="onChange(todo.id)"><!--переклеслення коли = true--> <!--(change) - відслідковуємо коли у нас змінюється checkbox-->
+     <!--(change) - пысля чого цей елемент треба створити todos.components.ts--> <!--onChange - метод який хочемо викликати-->
+         <strong>{{i + 1}}</strong>   {{todo.title}}
+</span>
+<small>{{todo.date | date:'medium'}}</small>
+<button class="rm" (click) = "removeToDo(todo.id)"> &times;</button>
+</li>
+</ul>
+
+<ng-template #noTodos>
+    <p style="text-align: center; color: red">No todos component</p>
+</ng-template>
+</div>
+<p *ngIf="loading">Loading....</p>

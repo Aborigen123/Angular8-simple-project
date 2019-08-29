@@ -1,0 +1,9 @@
+<div>
+<input type="text"
+ placeholder="Add todo title"
+ [(ngModel)] = "title"    
+ (keydown.enter)="addTodo()"
+ ><!--для того щоб байндити в одну сторону ми використовуємо [], а щоб байндити назад в іншу сторону пишемо [(ngModel)] | для того щоб юзати [(ngModel)] нам треба підключити FormsModule в app.module.ts-->
+<!--щоб зробити додати можливість додати компонент при нажатті на Enter-->
+ <button (click)="addTodo()">Add Todo</button>
+    </div>

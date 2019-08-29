@@ -1,0 +1,8 @@
+<div class="container">
+<h1>{{ appTitle }}</h1>
+
+<app-todos></app-todos>
+<!-- <app-todos [todos]="todos" (onToggle)="onToggle($event)"></app-todos> // закоментували тому що добавили todos.component.ts і перенесли всю логіку туда і нам не треба взаїмодіяти з ним передаючи параметри в основну сторінку коли викликаємо додаткові методи-->
+<app-todo-form></app-todo-form> 
+
+</div>
